@@ -1,189 +1,205 @@
+/* Root variables for easy theming */
+:root {
+  --bg-deep: #020617;        
+  --bg-deep-alt: #0b1120;    
+  --bg-gradient-start: #0f172a;
+  --bg-gradient-mid: #0f766e;
+  --bg-gradient-end: #22c55e;
+  --surface: rgba(15, 23, 42, 0.7);
+  --surface-soft: rgba(15, 23, 42, 0.5);
 
+  --text-main: #e5e7eb;
+  --text-soft: #cbd5f5;
+  --text-muted: #9ca3af;
 
-/* CSS Components */
+  --accent-primary: #38bdf8; 
+  --accent-secondary: #22c55e;
+  --accent-subtle: #a5b4fc;   
+
+  --border-soft: rgba(148, 163, 184, 0.2);
+  --shadow-strong: 0 24px 80px rgba(0, 0, 0, 0.6);
+  --shadow-soft: 0 16px 50px rgba(15, 23, 42, 0.7);
+
+  --radius-large: 24px;
+  --radius-medium: 16px;
+  --radius-pill: 999px;
+}
+
+/* Base styles */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
 
 body {
-  background-color: #FBF3E4;
-  font-family: "Arial Black", Arial, sans-serif;
+  margin: 0;
+  font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background:
+    radial-gradient(circle at top left, #1e293b 0%, transparent 40%),
+    radial-gradient(circle at bottom right, #0f766e 0%, transparent 45%),
+    linear-gradient(135deg, var(--bg-gradient-start), var(--bg-deep));
+  color: var(--text-main);
 }
+
+/* Paragraphs */
 
 p {
-  color: #6EBF8B;
-  font-family: Ubuntu, sans-serif;
-  line-height: 2;
+  color: var(--text-muted);
+  font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  line-height: 1.8;
+  font-size: 1rem;
 }
 
+/* Links */
+
 a {
-  color: #0FABBC;
+  color: var(--accent-primary);
   text-decoration: none;
-  font-family: "Source Code Pro", sans-serif;
-  font-weight: bold;
-  font-size: 20px;
-  margin: 20px 10px;
+  font-family: inherit;
+  font-weight: 600;
+  font-size: 1rem;
+  margin: 0;
+  transition: color 0.2s ease, text-shadow 0.2s ease;
 }
 
 a:hover {
-  color: white;
+  color: var(--text-main);
+  text-shadow: 0 0 12px rgba(56, 189, 248, 0.7);
 }
 
-
-/* TOP */
+/* To-Top button */
 
 .to-top {
   font-size: 5rem;
   z-index: 2;
   position: fixed;
-  margin: 600px 0 0 0;
+  right: 1.5rem;
+  bottom: 1.5rem;
 }
-
 
 /* Navigation Bar */
 
 .navbar {
-  padding-bottom: 2.5rem;
+  padding: 1rem 2.5rem;
+  border-bottom: 1px solid var(--border-soft);
+  background: rgba(15, 23, 42, 0.92) !important;
+  backdrop-filter: blur(18px);
 }
 
 .oz-logo {
-  width: 10%;
+  width: 40px;
 }
 
 .nav-item {
-  padding: 0 18px;
+  padding: 0 0.6rem;
 }
 
 .nav-link {
-  font-size: 1rem;
-  font-weight: lighter;
-  color: #6EBF8B !important;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--text-soft) !important;
+  padding: 0.5rem 0.9rem !important;
+  border-radius: 999px;
+  transition: background-color 0.2s ease, color 0.2s ease, transform 0.15s ease;
 }
-/* try id's instead of classes */
+
+/* Active/hover state for nav */
+
+nav .custom-nav-container ul li.active-list-item a {
+  background: radial-gradient(circle at top left, rgba(56, 189, 248, 0.25), rgba(34, 197, 94, 0.15));
+  color: var(--text-main) !important;
+}
+
 .nav-link:hover {
-  background-color: #D9E4DD;
+  background: radial-gradient(circle at top left, rgba(56, 189, 248, 0.35), rgba(34, 197, 94, 0.25)) !important;
+  color: var(--text-main) !important;
+  transform: translateY(-1px);
 }
-
-nav .custom-nav-container ul li.active-list-item {
-  transition: 0.3 ease background-color;
-}
-
-nav .custom-nav-container ul li.active-list-item a{
-  background-color: #D9E4DD;
-}
-
 
 /* Container-fluid */
 
 .container-fluid {
   text-align: center;
-  padding: 3% 50% 3%; /*top left-right bottom*/
+  padding: 3% 12%; /* top left-right bottom */
 }
-
 
 /* Section Components */
 
-.section-container{
-  margin: auto 400px;
+.section-container {
+  margin: 0 auto 2.5rem;
+  max-width: 900px;
   text-align: left;
-  padding: 3%;
+  padding: 3rem 2rem;
+  background: var(--surface);
+  border-radius: var(--radius-large);
+  box-shadow: var(--shadow-strong);
+  border: 1px solid var(--border-soft);
 }
 
 .section-item {
-  padding-top: 3%;
-  color: white;
+  padding-top: 1.5rem;
+  color: var(--text-main);
 }
 
-.section-title{
+.section-title {
   padding-top: 7%;
-  color: #D9E4DD;
-  font-family: "Source Code Pro", sans-serif;
-  font-size: 6rem;
+  padding-bottom: 2rem;
+  color: var(--text-main);
+  font-family: "Space Grotesk", system-ui, sans-serif;
+  font-size: clamp(2.4rem, 4vw, 3.2rem);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-align: center;
 }
 
 .section-subtitle {
-  font-family: Ubuntu, sans-serif;
-  font-size: 2.5rem;
-  color: #DFD8CA;
+  font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 1.6rem;
+  color: var(--text-soft);
+  font-weight: 600;
 }
 
-
-/* introduction */
+/* Introduction */
 
 .top-container {
-  background-color: #FBF3E4;
-  padding-top: 10%;
-}
-
-@media (max-width: 680px) {
-
-  .top-container {
-    padding-top: 30% !important;
-  }
-
-  .introduction-h1 {
-    font-size: 7rem !important;
-  }
-
-  .section-title {
-    padding: 6%;
-    font-size: 4rem;
-  }
-
-  .section-subtitle {
-    font-size: 2.5rem;
-  }
-}
-
-@media (max-width: 1320px) {
-  .section-container{
-    margin: 0;
-    text-align: center;
-    padding: 3%;
-  }
-  .skills-style i {
-    padding-right: 0 !important;
-    font-size: 3rem !important;
-  }
-}
-
-@media (max-width: 1028px) {
-
-  .top-container {
-    padding-top: 20%;
-  }
-
-  .skills-style .section-subtitle {
-    width: 100%;
-    text-align: center;
-  }
+  padding-top: 9%;
+  padding-bottom: 6%;
+  background: transparent;
 }
 
 .introduction-h1 {
-  color: #D82148;
-  font-family: "Dela Gothic One", sans-serif;
-  font-size: 11rem;
-  font-weight: bolder;
-}
-
-.introduction-h2 {
-  font-family: Ubuntu, sans-serif;
-  font-size: 2rem;
-  font-weight: lighter;
-  padding: 5%;
-  color: #105652;
-}
-
-.introduction-h3 {
-  font-family: Ubuntu, sans-serif;
-  font-size: 1.5rem;
-  font-weight: bolder;
-  padding: 5%;
-  color: #105652;
+  color: var(--text-main);
+  font-family: "Space Grotesk", system-ui, sans-serif;
+  font-size: clamp(3rem, 8vw, 4.5rem);
+  font-weight: 700;
+  margin-bottom: 0.5rem;
 }
 
 .introduction-h6 {
-  color: #D82148;
-  font-family: "Dela Gothic One", sans-serif;
-  font-size: 1rem;
-  font-weight: lighter;
+  color: var(--accent-secondary);
+  font-family: "Space Grotesk", system-ui, sans-serif;
+  font-size: 0.9rem;
+  font-weight: 400;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.introduction-h3 {
+  font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 1.2rem;
+  font-weight: 500;
+  padding: 1.2rem 0;
+  color: var(--text-soft);
+}
+
+.introduction-h2 {
+  font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 1.1rem;
+  font-weight: 400;
+  padding: 1.5rem 0 0;
+  color: var(--text-muted);
 }
 
 .introduction-p {
@@ -192,66 +208,89 @@ nav .custom-nav-container ul li.active-list-item a{
 }
 
 .avatar-img {
-  border-radius: 100%;
+  border-radius: 50%;
   width: 65%;
+  border: 3px solid rgba(148, 163, 184, 0.6);
+  box-shadow: 0 20px 70px rgba(0, 0, 0, 0.8);
 }
 
+/* Make intro text area glassy */
+
+#introduction .col-lg-6:first-child {
+  background: var(--surface-soft);
+  border-radius: var(--radius-large);
+  padding: 2.5rem 2.8rem;
+  box-shadow: var(--shadow-soft);
+  backdrop-filter: blur(20px);
+}
 
 /* Experience */
 
-.experience-style, .contact-style {
-  color: #FBF3E4;
+.experience-style {
+  color: var(--text-main);
   text-align: center;
-  font-family: "Josefin Sans", sans-serif;
-  background-color: #B91646;
+  font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: linear-gradient(135deg, var(--bg-gradient-start), var(--bg-gradient-mid), var(--bg-gradient-end));
+  padding-bottom: 6%;
 }
 
 .experience-style a {
-  font-family: Ubuntu, sans-serif;
-  font-size: 2.5rem;
-  color: #DFD8CA;
+  font-family: inherit;
+  font-size: 1.5rem;
+  color: var(--accent-primary);
 }
 
 .experience-style a:hover {
-  color: #105652;
+  color: var(--text-main);
 }
 
+/* Skills */
 
-/* skills */
-
-.skills-style, .education-style {
+.skills-style {
   text-align: center;
-  background-color: #FBF3E4;
+  padding-bottom: 6%;
+  background:
+    radial-gradient(circle at top, rgba(56, 189, 248, 0.12), transparent 55%),
+    linear-gradient(145deg, var(--bg-deep), var(--bg-deep-alt));
 }
 
 .carousel-item {
-  padding: 7% 15%; /* Apply padding only to the parts where it needs to be padded, instead of targeting the entire section/container ... The change also causes the bottons to be further away*/
-
+  padding: 7% 15%;
 }
 
 .skills-style .section-title {
-  color: #B91646;
+  color: var(--text-main);
 }
 
 .skills-style .section-subtitle {
-  color: #6EBF8B;
+  color: var(--accent-subtle);
 }
 
 .control-button {
-  filter: invert(100%);
+  filter: brightness(1.8) invert(0);
+  color: var(--accent-primary) !important;
+}
+
+.control-button:hover {
+  filter: brightness(2) invert(0);
 }
 
 .carousel-indicators {
-  filter: invert(100%);
+  filter: brightness(1.8) invert(0);
+}
+
+.carousel-indicators button {
+  background-color: var(--accent-primary) !important;
 }
 
 .carousel-indicators button:hover {
   cursor: default;
+  background-color: var(--text-main) !important;
 }
 
 .skills-style i {
-  color: #105652;
-  font-size: 4rem;
+  color: var(--accent-secondary);
+  font-size: 3.2rem;
   padding-top: 2%;
   padding-right: 10px;
 }
@@ -260,93 +299,212 @@ nav .custom-nav-container ul li.active-list-item a{
   padding-bottom: 10%;
 }
 
-
 /* Projects */
 
-.projects-style{
+.projects-style {
   text-align: center;
-  background-color: #B91646;
+  padding-bottom: 6%;
+  background: linear-gradient(135deg, var(--bg-gradient-mid), var(--bg-gradient-start));
 }
 
-.projects-style .section-item{
-  font-family: "Josefin Sans", sans-serif;
+.projects-style .section-item {
+  font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   padding-bottom: 5%;
+  color: var(--text-main);
 }
 
-.iframe-container{
+.iframe-container {
   position: relative;
   width: 100%;
   padding-bottom: 56.25%;
   height: 0;
 }
-.iframe-container iframe{
+
+.iframe-container iframe {
   position: absolute;
-  top:0;
+  top: 0;
   left: 0;
   width: 100%;
   height: 100%;
   padding: 3% 0 4% 0;
+  border-radius: var(--radius-medium);
+  box-shadow: var(--shadow-soft);
 }
 
-
 /* Education */
+
+.education-style {
+  text-align: center;
+  padding-bottom: 6%;
+  background:
+    radial-gradient(circle at top, rgba(34, 197, 94, 0.16), transparent 55%),
+    linear-gradient(145deg, var(--bg-deep-alt), var(--bg-deep));
+}
+
+.education-style .section-title {
+  text-align: center;
+  color: var(--text-main);
+}
+
+.education-style .section-subtitle {
+  text-align: center;
+  color: var(--text-soft);
+  padding: 5% 0;
+}
 
 .unr-logo {
   width: 35%;
   text-align: center;
   padding-bottom: 5%;
-}
-
-.education-style .section-title {
-  text-align: center;
-  color: #B91646;
-}
-
-.education-style .section-subtitle {
-  text-align: center;
-  color: #105652;
-  padding: 5% 0;
+  filter: drop-shadow(0 16px 40px rgba(15, 23, 42, 0.9));
 }
 
 .unr-logo-container {
   text-align: center;
 }
 
-
 /* Contact Me */
 
 .contact-style {
-  color: #FBF3E4;
+  color: var(--text-main);
   text-align: center;
-  font-family: "Josefin Sans", sans-serif;
-  background-color: #B91646;
+  font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: linear-gradient(150deg, var(--bg-gradient-start), var(--bg-gradient-mid), var(--bg-gradient-end));
+  padding-bottom: 4%;
 }
 
-.contact-style .section-container{
+.contact-style .section-container {
   text-align: center;
-  padding: 7%;
+  padding: 3.5rem 2.5rem;
+  background: var(--surface);
+  border-radius: var(--radius-large);
+  box-shadow: var(--shadow-strong);
+  border: 1px solid var(--border-soft);
+  margin-bottom: 0;
 }
 
 .fotter-btns-container {
-  padding: 5%;
+  padding: 2.5rem 0 0;
 }
 
-.dropdown-menu, .dropdown-menu a, .dropdown a {
+.dropdown-menu,
+.dropdown-menu a,
+.dropdown a {
   text-decoration: none;
-  font-family: "Josefin Sans", sans-serif;
+  font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+.dropdown-menu {
+  background-color: var(--bg-deep);
+  border-radius: var(--radius-medium);
+  border: 1px solid var(--border-soft);
 }
 
 .dropdown-menu a {
   display: contents;
-  font-size: 1rem;
+  font-size: 0.95rem;
+  color: var(--text-soft);
 }
+
+/* Buttons – let Bootstrap base exist, just tweak palette */
+
+.btn-outline-dark {
+  border-color: var(--accent-primary);
+  color: var(--accent-primary);
+}
+
+.btn-outline-dark:hover {
+  background-color: var(--accent-primary);
+  color: var(--bg-deep);
+}
+
+.btn-outline-light {
+  border-color: var(--accent-secondary);
+  color: var(--accent-secondary);
+}
+
+.btn-outline-light:hover {
+  background-color: var(--accent-secondary);
+  color: var(--bg-deep);
+}
+
+/* Footer */
 
 .footer-style {
-  background-color: #FBF3E4;
-  padding: 3%;
+  background-color: transparent;
+  padding: 0;
+  text-align: center;
 }
 
-.footer-style h6  {
+.footer-style h6 {
   text-align: center;
-  font-family: Ubuntu, sans-serif;
+  font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  padding: 2rem 0 3rem;
+  margin: 0;
+}
+
+/* Responsive Tweaks */
+
+@media (max-width: 1320px) {
+  .section-container {
+    margin: 0 1.5rem 2.5rem;
+    text-align: left;
+    padding: 2.5rem 1.8rem;
+  }
+
+  .skills-style i {
+    padding-right: 0 !important;
+    font-size: 2.8rem !important;
+  }
+}
+
+@media (max-width: 1028px) {
+  .top-container {
+    padding-top: 18%;
+  }
+
+  .skills-style .section-subtitle {
+    width: 100%;
+    text-align: center;
+  }
+
+  #introduction .col-lg-6:first-child {
+    margin-bottom: 2rem;
+  }
+
+  .container-fluid {
+    padding: 3% 7%;
+  }
+}
+
+@media (max-width: 680px) {
+  .top-container {
+    padding-top: 28% !important;
+  }
+
+  .introduction-h1 {
+    font-size: clamp(2.4rem, 10vw, 3.2rem) !important;
+  }
+
+  .section-title {
+    padding: 6%;
+    font-size: 2.2rem;
+  }
+
+  .section-subtitle {
+    font-size: 1.3rem;
+  }
+
+  .section-container {
+    margin: 0 1rem 2.5rem;
+    padding: 2.2rem 1.4rem;
+  }
+
+  .to-top {
+    font-size: 3rem;
+    right: 1rem;
+    bottom: 1rem;
+  }
 }
