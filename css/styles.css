@@ -72,11 +72,16 @@ a:hover {
 /* To-Top button */
 
 .to-top {
-  font-size: 5rem;
+  font-size: 3rem;
   z-index: 2;
   position: fixed;
   right: 1.5rem;
   bottom: 1.5rem;
+  pointer-events: none;
+}
+
+.to-top button {
+  pointer-events: auto;
 }
 
 /* Navigation Bar */
@@ -89,7 +94,7 @@ a:hover {
 }
 
 .oz-logo {
-  width: 40px;
+  width: 48px;
 }
 
 .nav-item {
@@ -97,7 +102,7 @@ a:hover {
 }
 
 .nav-link {
-  font-size: 0.95rem;
+  font-size: 1rem;
   font-weight: 500;
   color: var(--text-soft) !important;
   padding: 0.5rem 0.9rem !important;
@@ -131,7 +136,7 @@ nav .custom-nav-container ul li.active-list-item a {
   margin: 0 auto 2.5rem;
   max-width: 900px;
   text-align: left;
-  padding: 3rem 2rem;
+  padding: 2.5rem 2.5rem;
   background: var(--surface);
   border-radius: var(--radius-large);
   box-shadow: var(--shadow-strong);
@@ -139,13 +144,15 @@ nav .custom-nav-container ul li.active-list-item a {
 }
 
 .section-item {
-  padding-top: 1.5rem;
+  padding-top: 1.2rem;
   color: var(--text-main);
+  font-size: 0.95rem;
+  line-height: 1.7;
 }
 
 .section-title {
-  padding-top: 7%;
-  padding-bottom: 2rem;
+  padding-top: 5%;
+  padding-bottom: 2.5rem;
   color: var(--text-main);
   font-family: "Space Grotesk", system-ui, sans-serif;
   font-size: clamp(2.4rem, 4vw, 3.2rem);
@@ -156,7 +163,7 @@ nav .custom-nav-container ul li.active-list-item a {
 
 .section-subtitle {
   font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  font-size: 1.6rem;
+  font-size: 1.4rem;
   color: var(--text-soft);
   font-weight: 600;
 }
@@ -164,7 +171,7 @@ nav .custom-nav-container ul li.active-list-item a {
 /* Introduction */
 
 .top-container {
-  padding-top: 9%;
+  padding-top: 7%;
   padding-bottom: 6%;
   background: transparent;
 }
@@ -188,7 +195,7 @@ nav .custom-nav-container ul li.active-list-item a {
 
 .introduction-h3 {
   font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  font-size: 1.2rem;
+  font-size: 1.3rem;
   font-weight: 500;
   padding: 1.2rem 0;
   color: var(--text-soft);
@@ -209,7 +216,7 @@ nav .custom-nav-container ul li.active-list-item a {
 
 .avatar-img {
   border-radius: 50%;
-  width: 65%;
+  width: 75%;
   border: 3px solid rgba(148, 163, 184, 0.6);
   box-shadow: 0 20px 70px rgba(0, 0, 0, 0.8);
 }
@@ -236,7 +243,7 @@ nav .custom-nav-container ul li.active-list-item a {
 
 .experience-style a {
   font-family: inherit;
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   color: var(--accent-primary);
 }
 
@@ -255,7 +262,7 @@ nav .custom-nav-container ul li.active-list-item a {
 }
 
 .carousel-item {
-  padding: 7% 15%;
+  padding: 5% 10%;
 }
 
 .skills-style .section-title {
@@ -290,7 +297,7 @@ nav .custom-nav-container ul li.active-list-item a {
 
 .skills-style i {
   color: var(--accent-secondary);
-  font-size: 3.2rem;
+  font-size: 2.5rem;
   padding-top: 2%;
   padding-right: 10px;
 }
@@ -353,7 +360,7 @@ nav .custom-nav-container ul li.active-list-item a {
 }
 
 .unr-logo {
-  width: 35%;
+  width: 40%;
   text-align: center;
   padding-bottom: 5%;
   filter: drop-shadow(0 16px 40px rgba(15, 23, 42, 0.9));
@@ -449,20 +456,22 @@ nav .custom-nav-container ul li.active-list-item a {
 
 @media (max-width: 1320px) {
   .section-container {
-    margin: 0 1.5rem 2.5rem;
+    margin: 0 auto 2.5rem;
+    margin-left: max(1.5rem, auto);
+    margin-right: max(1.5rem, auto);
     text-align: left;
-    padding: 2.5rem 1.8rem;
+    padding: 2.2rem 2rem;
   }
 
   .skills-style i {
     padding-right: 0 !important;
-    font-size: 2.8rem !important;
+    font-size: 2.2rem !important;
   }
 }
 
 @media (max-width: 1028px) {
   .top-container {
-    padding-top: 18%;
+    padding-top: 15%;
   }
 
   .skills-style .section-subtitle {
@@ -481,7 +490,7 @@ nav .custom-nav-container ul li.active-list-item a {
 
 @media (max-width: 680px) {
   .top-container {
-    padding-top: 28% !important;
+    padding-top: 22% !important;
   }
 
   .introduction-h1 {
@@ -489,17 +498,23 @@ nav .custom-nav-container ul li.active-list-item a {
   }
 
   .section-title {
-    padding: 6%;
+    padding: 5% 0 2rem;
     font-size: 2.2rem;
   }
 
   .section-subtitle {
-    font-size: 1.3rem;
+    font-size: 1.2rem;
   }
 
   .section-container {
-    margin: 0 1rem 2.5rem;
-    padding: 2.2rem 1.4rem;
+    margin: 0 auto 2.5rem;
+    margin-left: max(1rem, auto);
+    margin-right: max(1rem, auto);
+    padding: 1.8rem 1.8rem;
+  }
+
+  .skills-style i {
+    font-size: 2rem !important;
   }
 
   .to-top {
