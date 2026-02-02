@@ -267,7 +267,7 @@ nav .custom-nav-container ul li.active-list-item a {
 }
 
 .skills-style .section-title {
-  color: var(--text-main);
+  color: var(--accent-secondary);
 }
 
 .skills-cards-container {
@@ -303,9 +303,9 @@ nav .custom-nav-container ul li.active-list-item a {
   color: var(--accent-secondary);
 }
 
-.skill-card:hover .skill-name {
+/* .skill-card:hover .skill-name { //might turn back on later.
   color: var(--accent-secondary);
-}
+} */
 
 .skill-card:hover .rating i {
   color: var(--accent-secondary);
