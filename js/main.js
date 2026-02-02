@@ -2,7 +2,7 @@
 const sections = document.querySelectorAll('section');
 const navLi = document.querySelectorAll('nav .custom-nav-container ul li');
 
-window.addEventListener('scroll', () => {
+function updateActiveSection() {
   let current = '';
   sections.forEach(section => {
     const sectionTop = section.offsetTop;
@@ -24,4 +24,14 @@ window.addEventListener('scroll', () => {
       li.classList.add('active-list-item');
     }
   })
+}
+
+window.addEventListener('scroll', updateActiveSection);
+
+// Set "Experience" as the initial active section on page load
+navLi.forEach(li => {
+  li.classList.remove('active-list-item');
+  if (li.classList.contains('experience')) {
+    li.classList.add('active-list-item');
+  }
 })
