@@ -139,7 +139,7 @@ nav .custom-nav-container ul li.active-list-item a {
   padding: 2.5rem 2.5rem;
   background: var(--surface);
   border-radius: var(--radius-large);
-  box-shadow: var(--shadow-strong);
+  box-shadow: var(--shadow-soft);
   border: 1px solid var(--border-soft);
 }
 
@@ -173,7 +173,10 @@ nav .custom-nav-container ul li.active-list-item a {
 .top-container {
   padding-top: 7%;
   padding-bottom: 6%;
-  background: transparent;
+  background-image: url('../images/cover-image-dark.png');  
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 .introduction-h1 {
@@ -187,7 +190,7 @@ nav .custom-nav-container ul li.active-list-item a {
 .introduction-h6 {
   color: var(--accent-secondary);
   font-family: "Space Grotesk", system-ui, sans-serif;
-  font-size: 0.9rem;
+  font-size: 1.2rem;
   font-weight: 400;
   letter-spacing: 0.18em;
   text-transform: uppercase;
@@ -224,7 +227,7 @@ nav .custom-nav-container ul li.active-list-item a {
 /* Make intro text area glassy */
 
 #introduction .col-lg-6:first-child {
-  background: var(--surface-soft);
+  background: var(--surface);
   border-radius: var(--radius-large);
   padding: 2.5rem 2.8rem;
   box-shadow: var(--shadow-soft);
@@ -343,27 +346,31 @@ nav .custom-nav-container ul li.active-list-item a {
 .education-style {
   text-align: center;
   padding-bottom: 6%;
-  background:
-    radial-gradient(circle at top, rgba(34, 197, 94, 0.16), transparent 55%),
-    linear-gradient(145deg, var(--bg-deep-alt), var(--bg-deep));
+  background: rgb(180, 180, 180);  
 }
 
 .education-style .section-title {
   text-align: center;
-  color: var(--text-main);
+  color: var(--surface);
 }
 
 .education-style .section-subtitle {
   text-align: center;
-  color: var(--text-soft);
+  color: var(--surface);
   padding: 5% 0;
+}
+
+.education-style .section-container {
+  background: var(--text-muted);
+  box-shadow: none;
+  border: none;
 }
 
 .unr-logo {
   width: 40%;
   text-align: center;
   padding-bottom: 5%;
-  filter: drop-shadow(0 16px 40px rgba(15, 23, 42, 0.9));
+  /* filter: drop-shadow(0 16px 40px rgba(15, 23, 42, 0.9)); */
 }
 
 .unr-logo-container {
@@ -377,7 +384,7 @@ nav .custom-nav-container ul li.active-list-item a {
   text-align: center;
   font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   background: linear-gradient(150deg, var(--bg-gradient-start), var(--bg-gradient-mid), var(--bg-gradient-end));
-  padding-bottom: 4%;
+  padding-bottom: 0;
 }
 
 .contact-style .section-container {
@@ -392,6 +399,22 @@ nav .custom-nav-container ul li.active-list-item a {
 
 .fotter-btns-container {
   padding: 2.5rem 0 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.fotter-btns-container .btn {
+  width: 250px;
+  text-align: left;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.fotter-btns-container .btn i {
+  margin-right: 0.5rem;
 }
 
 .dropdown-menu,
@@ -438,9 +461,11 @@ nav .custom-nav-container ul li.active-list-item a {
 /* Footer */
 
 .footer-style {
-  background-color: transparent;
+  background-color: var(--bg-deep-alt);
   padding: 0;
   text-align: center;
+  margin-top: 7rem;
+  width: 100%;
 }
 
 .footer-style h6 {
@@ -448,7 +473,7 @@ nav .custom-nav-container ul li.active-list-item a {
   font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   color: var(--text-muted);
   font-size: 0.85rem;
-  padding: 2rem 0 3rem;
+  padding: 2rem 0;
   margin: 0;
 }
 
